@@ -108,7 +108,8 @@ Initialiser le dépôt local. À partir du répertoire 'howtos/' créé plus haut :
   $ git remote add origin https://github.com/glagaffe/howtos.git
   $ git push -u origin master
 
-À partir de là, ajouter un ou plusieurs HOWTOs dans ce dépôt local.
+À partir de là, ajouter un ou plusieurs HOWTOs dans ce dépôt local.(Copier les
+fichiers que l'on veut envoyer sur git)
 
 Remonter à la racine du dépôt et afficher l'état du dépôt :
 
@@ -122,7 +123,7 @@ Voir ce que Git en pense :
 
   $ git status
 
-Faire le commit :
+Faire le commit : (étape obligatoire avant le push)
 
   $ git commit -a (Sauvegarde hors ligne)
 
