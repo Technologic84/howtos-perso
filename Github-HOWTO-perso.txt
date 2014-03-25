@@ -124,12 +124,12 @@ Voir ce que Git en pense :
 
 Faire le commit :
 
-  $ git commit -a
+  $ git commit -a (Sauvegarde hors ligne)
 
 Éventuellement, spécifier un message de commit (facultatif). Sinon, mettez
 simplement trois petits points '...'. Ensuite, uploader le commit :
 
-  $ git push
+  $ git push (envoie sur git)
 
 Modifier un ou plusieurs HOWTOs dans le dépôt local.
 
