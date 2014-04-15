@@ -1,0 +1,74 @@
+Installation de dolibarr
+
+
+1. # mkdir -pv /var/www/vhosts/dolibarr/
+
+2. # vim /etc/httpd/extra/httpd-vhosts.conf
+
+<VirtualHost *:80>
+    ServerAdmin poste@jerome.fr 
+    DocumentRoot "/srv/httpd/vhosts/dolibarr/htdocs"
+    ServerName dolibarr.poste-jerome.bge.montpellier
+    ServerAlias dolibarr.poste-jerome
+    ErrorLog "/var/log/httpd/dolibarr-error_log"
+    CustomLog "/var/log/httpd/dolibarr-access_log" common
+</VirtualHost>
+
+3. # vim /etc/hosts
+
+# For loopbacking.
+127.0.0.1 	localhost.localdomain localhost
+192.168.2.4 wordpress.poste-jerome.bge.montpellier wordpress.poste-jerome
+192.168.2.4 cmsmadesimple.poste-jerome.bge.montpellier cmsmadesimple.poste-jerome
+192.168.2.4 dolibarr.poste-jerome.bge.montpellier dolibarr.poste.jerome
+# End of hosts.
+
+4. # mysql -u root -p (taper ensuite le password)
+
+ Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 52
+Server version: 5.5.35-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2013, Oracle, Monty Program Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+5. MariaDB [(none)]> create database dolibarr
+    -> ;
+    Query OK, 1 row affected (0.00 sec)
+
+6. MariaDB [(none)]> use dolibarr;
+    Database changed
+
+7. MariaDB [dolibarr]> grant all on dolibarr.* to dolibarruser
+    -> identified by '12345';
+    Query OK, 0 rows affected (0.00 sec)
+
+8. MariaDB [dolibarr]> quit;
+Bye
+
+9. # mkdir /root/dolibarr
+   # cd /root/dolibarr
+
+10. # links http://dolibarr.fr/telechargements
+Allez sur "Cliquer ici pour aller sur l'espace de telechargement de
+sourceforge"
+Allez sur Download dolibarr-3.5.2.zip (20.1 MB)
+Et enfin allez sur "Please use this direct link,"
+
+11. # unzip dolibarr-3.5.2.zip
+    # rm dolibarr-3.5.2.zip
+
+12. # cd dolibarr
+    # mv * /var/www/vhosts/dolibarr/.
+
+13. # cd /var/www/vhosts/dolibarr/htdocs/conf
+    # cp conf.php.sample conf.php
+    # chown -R apache:apache /var/www/vhosts/dolibarr
+    # chmod 0666 conf.php
+
+14. Dans un navigateur "dolibarr.poste-jerome"
+suivre les étapes d'installation
+
+
+
